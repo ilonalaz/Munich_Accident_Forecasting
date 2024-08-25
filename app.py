@@ -8,6 +8,10 @@ app = Flask(__name__)
 with open('sarima_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
+@app.route('/')
+def home():
+    return "<h1>Welcome to the Prediction API</h1>"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get the request data
